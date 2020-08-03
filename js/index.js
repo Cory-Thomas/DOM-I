@@ -71,21 +71,15 @@ const footer = document.querySelector('footer p')
 
 
 
-navLinks[0].textContent = siteContent["nav"]["nav-item-1"]
-navLinks[1].textContent = siteContent["nav"]["nav-item-2"]
-navLinks[2].textContent = siteContent["nav"]["nav-item-3"]
-navLinks[3].textContent = siteContent["nav"]["nav-item-4"]
-navLinks[4].textContent = siteContent["nav"]["nav-item-5"]
-navLinks[5].textContent = siteContent["nav"]["nav-item-6"]
-console.log(navLinks[0])
-// navLinks[0].style.color = green;
-// navLinks.map((item,i )=> item[i].style.color = "green")
-navLinks[0].style.color = "green";
-navLinks[1].style.color = "green";
-navLinks[2].style.color = "green";
-navLinks[3].style.color = "green";
-navLinks[4].style.color = "green";
-navLinks[5].style.color = "green";
+for(let i = 0; i < navLinks.length; i++){
+  let num = i;
+  i++;
+  navLinks[num].textContent = siteContent["nav"][`nav-item-${i}`];
+  i--;
+}
+
+navLinks.forEach( item => item.style.color = 'green' )
+
 
 ctaSectionHeader.textContent = siteContent['cta']['h1']
 ctaSectionButton.textContent = siteContent['cta']['button']
@@ -123,4 +117,6 @@ const navItems = document.querySelector('nav')
 navItems.appendChild(navLink2)
 navItems.prepend(navLink1)
 
+navLink1.style.color = 'green'
+navLink2.style.color = 'green'
 
